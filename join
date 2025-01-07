@@ -1,0 +1,14 @@
+SELECT a.country,
+    COUNT (d. customer_id) as total_customers
+    FROM country a
+    INNER JOIN city b
+    ON a. country_id = b. country_id
+    INNER JOIN address c
+    ON b.city_id = c.city_id
+    INNER JOIN customer d
+    ON c. address_id = d.address_id
+GROUP BY
+    a. country
+ORDER BY
+    total_customers DESC
+LIMIT 10
