@@ -1,0 +1,11 @@
+*using group by to get some movie statistics*
+SELECT 
+  rating,
+  COUNT(film_id) as count_of_movies,
+  AVG(rental_rate) as average_movie_rental_rate,
+  MAX(renatl_duration) as maximum_rental_duration,
+  MIN(renatl_duration) as minimum_rental_duration
+FROM
+  film
+GROUP BY
+  rating;
