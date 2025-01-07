@@ -1,1 +1,1 @@
-![world map with countries names and countries shaded respectively with the total sales](images/countries with total sales.jpg)
+![countries with total sales](https://github.com/user-attachments/assets/79908252-fbf7-4694-bb0d-1264ee34c466)
