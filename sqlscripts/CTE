@@ -1,1 +1,53 @@
-
+* average amount paid by top 5 customers using **CTE** *
+WITH top_countries 
+AS(
+    SELECT d.country
+    FROM customer a
+    JOIN address b
+      ON a.address_id = b.address_id
+    JOIN city c
+      ON b.city_id = c.city_id
+    JOIN country d
+      ON c.country_id = d.country_id
+    GROUP BY d.country
+    ORDER BY count(a.customer_id) DESC
+    limit 10
+    ),
+top_cities 
+AS
+(
+    SELECT c.city
+    FROM customer a 
+    JOIN address b
+      ON a.address_id = b.address_id
+    JOIN city c
+      ON b.city_id = c.city_id
+    JOIN country d
+      ON c.country_id = d.country_id
+    WHERE d.country IN (
+        SELECT * 
+        FROM top_countries
+    )
+    GROUP BY d.country, c.city 
+    ORDER BY count(a.customer_id) DESC
+    LIMIT 10
+    ),
+top_customer AS
+    (SELECT SUM(A.amount) AS total_amount
+    FROM payment A
+    JOIN customer B 
+        ON A.customer_id = B.customer_id
+    JOIN address C 
+        ON B.address_id = C.address_id
+    JOIN city D 
+        ON C.city_id = D.city_id
+    JOIN country E 
+        ON D.country_id = E.country_id
+    WHERE D.city IN 
+        (SELECT * 
+        FROM Top_cities)
+        GROUP BY B.first_name, B.last_name, D.city, E.country
+        ORDER BY total_amount desc
+        LIMIT 5)
+    SELECT AVG(total_amount)
+    FROM top_customer;
