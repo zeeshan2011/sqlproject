@@ -1,2 +1,3 @@
 # sqlproject
-Rockbuster Stealth LLC, a former movie rental leader, is launching an online video service to compete with streaming giants. Using SQL-based analysis, this project explores rental trends, customer locations, revenue drivers, and regional sales patterns to guide strategic decisions for a successful digital transition.
+**Project Description**  
+Rockbuster Stealth LLC, a former leader in the movie rental industry, is preparing to launch an online video rental platform to compete with major streaming services. This project uses data-driven insights from Rockbuster's relational database to support strategic decision-making for this transition. Key areas of analysis include rental trends, customer demographics, revenue contributors, and regional sales patterns. These insights will help identify high-value markets, understand customer distribution, and guide Rockbuster's management team toward a successful digital transformation.
